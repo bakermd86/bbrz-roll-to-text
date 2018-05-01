@@ -32,7 +32,8 @@ def parse_raw_block_rolls(unzipped_bbrz: zipfile.ZipExtFile):
 
 
 def clean_block_dice_list(dice_str: str):
-    return dice_str.strip('(').rstrip(')').split(',')[1::2]
+    res = dice_str.strip('(').rstrip(')').split(',')
+    return res[0:int(len(res) / 2)]
 
 
 def is_block_roll(elem: ElementTree.Element):
