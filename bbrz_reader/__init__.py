@@ -94,15 +94,6 @@ class ReplayReader:
         block_actions = [result for result in list(map(self.parse_block_roll_info, board_actions)) if result]
         block_results = list(itertools.chain.from_iterable(block_actions))
         return list(map(lambda x: x.result_str(), block_results))
-        # results = self.walk_tree_list(board_actions, 'Results')
-        # action_results = self.walk_tree_list(results, 'BoardActionResult')
-        # block_rolls = list(filter(self.is_block_roll, action_results))
-        # coach_choices = self.walk_tree_list(block_rolls, 'CoachChoices')
-        # list_dices = self.walk_tree_list(coach_choices, 'ListDices')
-        #
-        #
-        # # list(map(lambda x: print(x.result_str()), test_objs))
-        # return list(itertools.chain.from_iterable(list(map(lambda x: self.clean_block_dice_list(x.text), list_dices))))
 
     @staticmethod
     def clean_block_dice_list(dice_str: str):
